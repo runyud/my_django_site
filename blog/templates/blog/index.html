@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}"/>
+{% endblock  %}
+
+
+{% block content %}
+    <header id="main-navigation">
+        <h1><a href="">Runyu's Blog</a></h1>
+        <nav>
+            <h1><a href="">All Posts</a></h1>
+        </nav>
+    </header>
+
+    <section id="welcome">
+        <header>
+            <img src="{% static 'blog/images/profile.jpg' %}" alt="Runyu - The author of this blog">
+            <h2>RUNYU'S BLOG</h2>
+        </header>
+        <p>Hi, I am Runyu and I love to blog about tech and the world!</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+
+        <ul>
+            <li>
+                <article class="post">
+                    <a href="">
+                        <img src="{% static 'blog/images/mountains.jpg' %}" alt="Mountain Hiking">
+                        <div class="post__content">
+                            <h3>Mountain Hiking</h3>
+                            <p>There's nothing like the views you get when hiking in the mountains! 
+                                And I wasn't even prepared for what happened while I was enjoying 
+                                the view!
+                            </p>
+                        </div>
+                    </a>
+                </article>
+            </li>
+        </ul>
+    </section>
+{% endblock %}
