@@ -45,6 +45,7 @@ class AllPostsView(ListView):
 
 
 class SinglePostView(View):
+    # for DetailView
     # template_name = "blog/post-detail.html"
     # model = Post
 
@@ -53,7 +54,8 @@ class SinglePostView(View):
         context = {
             "post": identified_post,
             "post_tags": identified_post.tags.all(),
-            "comment_form" : CommentForm()
+            "comment_form" : CommentForm(),
+            "comments" : identified_post.comments.all().order_by("-id")
         }
         return render(request, "blog/post-detail.html", context)
 
@@ -71,7 +73,8 @@ class SinglePostView(View):
         context = {
             "post": identified_post,
             "post_tags": identified_post.tags.all(),
-            "comment_form" : comment_form
+            "comment_form" : comment_form,
+            "comments" : identified_post.comments.all().order_by("-id")
         }
         return render(request, "blog/post-detail.html", context)
 
